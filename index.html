@@ -16,10 +16,18 @@
 
 <!-- JavaScript to redirect to the specified URL -->
 <script>
+    // Function to get URL parameter by name
+    function getParameterByName(name) {
+        const urlParams = new URLSearchParams(window.location.search);
+        return urlParams.get(name);
+    }
+
     window.onload = function() {
-        var id = '{id}'; // Replace '{id}' with the actual value of the id parameter
-        var redirectURL = 'https://emqm.adj.st/custom/' + id + '?adjust_t=11c8o8sw_11i1anya';
-        // window.location.replace(redirectURL);
+        var id = getParameterByName('id');
+        if (id) {
+            var redirectURL = 'https://emqm.adj.st/custom/' + id + '?adjust_t=11c8o8sw_11i1anya';
+            // window.location.replace(redirectURL);
+        }
     };
 </script>
 </body>
