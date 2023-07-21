@@ -25,12 +25,18 @@
     window.onload = function() {
         var id = getParameterByName('id');
         if (id) {
-            var ogImage = document.getElementById('ogImage');
-            ogImage.setAttribute('content', 'https://storage.googleapis.com/jigsort-puzzles-dev2-c2f9f.appspot.com/CustomPuzzle/' + id + '.jpg');
             var redirectURL = 'https://emqm.adj.st/custom/' + id + '?adjust_t=11c8o8sw_11i1anya';
             // window.location.replace(redirectURL);
         }
     };
+
+    if (window.location.search.includes('fbclid') || window.location.search.includes('utm_source')) {
+        var id = getParameterByName('id');
+        if (id) {
+            var ogImage = document.getElementById('ogImage');
+            ogImage.setAttribute('content', 'https://storage.googleapis.com/jigsort-puzzles-dev2-c2f9f.appspot.com/CustomPuzzle/' + id + '.jpg');
+        }
+    }
 </script>
 </body>
 </html>
